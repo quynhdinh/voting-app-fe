@@ -1,0 +1,2 @@
+#ignore everything in node_modules
+voting-app-fe/node_modules/
