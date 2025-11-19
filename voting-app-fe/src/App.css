@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+:root{
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-600: #1e40af;
+  --text: #0f172a;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Page and container */
+html,body,#root{
+  height:100%;
+}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App{
+  padding:24px;
+  max-width:960px;
+  margin:0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+header h1{margin:0;font-size:20px}
+.login-area{display:flex;align-items:center;gap:8px}
+
+/* Buttons */
+button{font-family:inherit;cursor:pointer}
+.btn,button{
+  padding:8px 12px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-weight:600;
+  box-shadow:0 6px 18px rgba(37,99,235,0.08);transition:all .12s ease;
+}
+button:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(37,99,235,0.12)}
+button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-secondary{background:#eef2ff;color:var(--accent);box-shadow:none;font-weight:600}
+
+/* Lists / cards */
+.contest-list{display:flex;flex-direction:column;gap:12px}
+.contest-item{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.04);display:flex;justify-content:space-between;align-items:center}
+.contest-meta{display:flex;flex-direction:column;align-items:flex-start}
+.contest-title{font-weight:700;margin-bottom:6px}
+.contest-desc{color:var(--muted);font-size:13px}
+.contest-info{font-size:12px;color:var(--muted)}
+
+/* Candidates list inside modal */
+ul.candidate-list{list-style:none;padding:0;margin:0}
+ul.candidate-list li{padding:10px;border-bottom:1px solid rgba(15,23,42,0.04);display:flex;justify-content:space-between;align-items:center}
+ul.candidate-list li:last-child{border-bottom:none}
+ul.candidate-list strong{display:block}
+ul.candidate-list .candidate-desc{color:var(--muted);font-size:13px}
+
+/* Forms */
+input[type="text"],input[type="datetime-local"],textarea{width:100%;padding:8px 10px;border-radius:8px;border:1px solid rgba(15,23,42,0.08);background:#fff;font-size:14px}
+label{font-size:13px;font-weight:600;margin-bottom:6px;display:block}
+
+/* Modal content (affects inner content inside inline-styled modal) */
+.App modal, .App .modal-content{}
+.App h2{margin-top:0}
+
+/* Small responsive tweaks */
+@media (max-width:600px){
+  .contest-item{flex-direction:column;align-items:flex-start;gap:8px}
+  header{flex-direction:column;align-items:flex-start}
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* Utility */
+.muted{color:var(--muted)}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

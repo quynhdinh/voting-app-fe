@@ -8,8 +8,6 @@ export default function ContestList({ contests, onSelect, onOpen }) {
       <h2>Contests</h2>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {contests.map((c) => {
-          const candidates = c.candidates || [];
-          const totalVotes = candidates.reduce((s, t) => s + (t.votes || 0), 0);
           const start = c.startTime ? new Date(c.startTime).toLocaleString() : 'TBD';
           const end = c.endTime ? new Date(c.endTime).toLocaleString() : 'TBD';
           return (
@@ -17,7 +15,6 @@ export default function ContestList({ contests, onSelect, onOpen }) {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <strong>{c.title}</strong>
-                  <div style={{ fontSize: 12, color: '#666' }}>{candidates.length} candidates • {totalVotes} votes</div>
                   <div style={{ fontSize: 12, color: '#666' }}>Starts: {start} • Ends: {end}</div>
                 </div>
                 <div>

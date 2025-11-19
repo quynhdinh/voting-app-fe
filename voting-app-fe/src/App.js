@@ -356,12 +356,12 @@ function App() {
                 <div>Created at: {modalContest.createdAt ? (typeof modalContest.createdAt === 'number' ? new Date(modalContest.createdAt).toLocaleString() : new Date(modalContest.createdAt).toLocaleString()) : 'N/A'}</div>
               </div>
 
-              <h3 style={{ marginTop: 12 }}>Candidates</h3>
+              {/* <h3 style={{ marginTop: 12 }}>Candidates</h3> */}
               {modalResults ? (
                 <div>
-                  <h4>Results</h4>
-                  <div style={{ fontSize: 13, color: '#333' }}>{modalResults.title || modalContest.title}</div>
-                  <p style={{ fontSize: 13, color: '#555' }}>{modalResults.description}</p>
+                  {/* <h4>Results</h4> */}
+                  {/* <div style={{ fontSize: 13, color: '#333' }}>{modalResults.title || modalContest.title}</div> */}
+                  {/* <p style={{ fontSize: 13, color: '#555' }}>{modalResults.description}</p> */}
                   <ul style={{ listStyle: 'none', padding: 0 }}>
                     {(modalResults.candidateResults || []).map((r) => (
                       <li key={r.candidateId} style={{ padding: 8, borderBottom: '1px solid #eee' }}>
@@ -405,7 +405,7 @@ function App() {
                       setModalResults(null);
                     }}
                   >
-                    Clear Results
+                    Vote Again
                   </button>
                 )}
                 <div style={{ marginLeft: 'auto' }}>
